@@ -16,7 +16,11 @@ stream_client = Twitter::Streaming::Client.new do |config|
   config.access_token_secret = "gQu0EgHOpzvCq9Ve5KE6afO8uHoJnutlRBf0L4acWMsLs"
 end
 
-stream_client.filter(locations: "-79.399837,43.657540,-79.381129,43.679445") do |tweet|
-   puts "#{tweet.user.name} says: #{tweet.text}"
+i = 0
 
+stream_client.filter(locations: "-79.399837,43.657540,-79.381129,43.679445") do |tweet|
+   puts "#{tweet.user.name} says: #{tweet.text}" if tweet.text.downcase.include?("toronto")
+   i += 1 if tweet.text.downcase.include?("toronto")
+   puts i if tweet.text.downcase.include?("toronto")
 end
+
