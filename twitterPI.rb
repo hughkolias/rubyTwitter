@@ -44,5 +44,9 @@ class TwitterStream
 
 end
 
-Toronto_filter = TwitterStream.new("")
+puts "Type in what word you would like to filter?"
+filter_name = gets.chomp
+puts "filtering tweets using the word #{filter_name}"
+
+Toronto_filter = TwitterStream.new(filter_name)
 Toronto_filter.stream
