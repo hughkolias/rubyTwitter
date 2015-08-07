@@ -72,7 +72,7 @@ class TwitterLight
 
   def userstream
     @@stream_client.user do |object|
-      if object.is_a?(Twitter::Tweet) && tweet.text.downcase.include?('led on')
+      if object.is_a?(Twitter::Tweet) && object.text.downcase.include?('led on')
         light_the_led
       end
     end
