@@ -67,7 +67,7 @@ class TwitterLight
       config.access_token_secret = "gQu0EgHOpzvCq9Ve5KE6afO8uHoJnutlRBf0L4acWMsLs"
     end
 
-    pin = PiPiper::Pin.new( :pin => 17, :direction => :out )
+    @pin = PiPiper::Pin.new( :pin => 17, :direction => :out )
   end
 
   def userstream
@@ -79,9 +79,10 @@ class TwitterLight
   end
 
   def light_the_led
-    pin.on
+    puts 'LED ON'
+    @pin.on
     sleep 10
-    pin.off
+    @pin.off
   end
 
 end
